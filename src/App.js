@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import './index.css';
+import Header from './components/Header';
 import './App.css';
+import List from './components/List';
+import Footer from './components/Footer';
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem(("theme")|| "light" ));
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("theme", theme)
+  }, [theme])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="page-container" >
+      <Header theme = {theme} setTheme = {setTheme} />
+      <List />
+        <Footer />
     </div>
   );
 }

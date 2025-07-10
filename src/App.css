@@ -1,38 +1,326 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+#root {
+  width: 1440px;
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Noto Sans", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page-container {
+  width: 90vw; /* or 1000px, 1140px etc. */
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  left: 5%;
+  right: auto;
+  margin: 1rem;
+}
+body.dark {
+  background: -webkit-linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: hsl(0, 0%, 93%);
+}
+body.light {
+  background: -webkit-linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  color: hsl(227, 75%, 14%);
+}
+body.dark .custom-box,
+body.dark .header {
+  background:hsl(226, 25%, 17%);
+}
+body.light .custom-box,
+body.light .header {
+  background: hsl(200, 60%, 99%);
+}
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  height: 4rem;
+  border-radius: 10px;
+}
+.logo {
+  display: inline-block;
+  padding: 12px;
+}
+.btn {
+  position: relative;
+  right: 1rem;
+  width: 50px;
+  height: 3rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: transparent;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px transparent;
+}
+body.dark .btn {
+  background-color: hsl(225, 23%, 24%);
+}
+body.dark .btn:hover {
+  background-color:hsl(226, 11%, 37%) ;
+}
+body.dark .btn:focus {
+  outline: none;
+  border: 2px solid hsl(3, 71%, 56%);
+}
+body.light .btn:hover {
+  background-color: hsl(0, 0%, 78%);
+}
+body.light .btn:focus {
+ border: 2px solid hsl(3, 71%, 56%);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  border-radius: 10px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.title h1 {
+  padding: 5px;
+  margin: 5px;
+}
+.filters {
+  display: inline-flex;
+  position: relative;
+  gap: 1rem;
+  padding: 5px;
+  margin: 5px;
+}
+.filters button {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align:center;
+}
+body.dark .filters button {
+  background-color: hsl(225, 23%, 24%);
+   border: 1px solid hsl(226, 11%, 37%);
+   color:hsl(200, 60%, 99%) ;
+}
+body.dark .filters button:hover {
+  background-color:hsl(3, 71%, 56%);
+  color: hsl(226, 25%, 17%);
+  border: none;
+}
+body.dark .filters button:focus {
+  background-color:hsl(3, 71%, 56%);
+  border:2px solid hsl(3, 77%, 44%);
+}
+body.dark .filters .active:hover {
+  background-color:hsl(226, 11%, 37%);
+  color: hsl(200, 60%, 99%);
+  border: none;
+}
+body.dark .filters .active:focus {
+  background-color:hsl(226, 11%, 37%);
+  color: hsl(200, 60%, 99%);
+  border: 2px solid hsl(3, 71%, 56%);
+}
+body.light .filters button {
+  background-color:hsl(200, 60%, 99%);
+  border: 1px solid hsl(0, 0%, 78%);
+  color:hsl(226, 25%, 17%) ;
+}
+body.light .filters button:hover {
+  background-color: hsl(3, 86%, 64%);
+  border: none;
+  color:hsl(200, 60%, 99%);
+}
+body.light .filters button:focus {
+  background-color: hsl(3, 86%, 64%);
+  border: 2px solid hsl(3, 71%, 56%);
+  color:hsl(200, 60%, 99%);
+}
+body.light .filters .active:hover {
+ color: hsl(226, 11%, 37%);
+ background-color: hsl(200, 60%, 99%);
+}
+body.light .filters .active:focus {
+ color: hsl(226, 11%, 37%);
+ background-color: hsl(200, 60%, 99%);
+ border: 2px solid hsl(3, 71%, 56%);;
+}
+/* Extension Card styling */
+.container {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+/* Single Extension box styling */
+.custom-box {
+  box-sizing: content-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 480px;
+  height: 15vh;
+  padding: 12px;
+  border-radius: 10px;
+}
+body.dark .custom-box {
+   border: 1px solid hsl(226, 11%, 37%);
+}
+.box-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+body.light .box-text p{
+  color:hsl(226, 11%, 37%) ;
+}
+body.dark .box-text p {
+  color: hsl(0, 0%, 78%);
+}
+.box-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.remove-button {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+body.dark .remove-button {
+  color: hsl(200, 60%, 99%);
+  border: 1px solid hsl(225, 23%, 24%);
+}
+body.dark .remove-button:hover {
+  background-color: hsl(3, 71%, 56%);
+}
+body.dark .remove-button:focus {
+  background-color: hsl(226, 11%, 37%);
+  color: hsl(200, 60%, 99%);
+  border: 2px solid hsl(3, 71%, 56%);
+}
+body.light .remove-button {
+  color:hsl(227, 75%, 14%);
+  border: 1px solid hsl(0, 0%, 78%);
+}
+body.light .remove-button:hover {
+  background-color: hsl(3, 77%, 44%);
+}
+body.light .remove-button:focus{
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(226, 25%, 17%);
+  border: 2px solid hsl(3, 77%, 44%);
+}
+.toggle-button {
+ width: 50px;
+ height: 26px;
+ background-color:hsl(0, 0%, 78%) ;
+ border: none;
+ border-radius: 999px;
+ cursor: pointer;
+ position: relative;
+ transition: background-color 0.3s ease;
+ padding: 0;
+ cursor: pointer;
+}
+body.dark .toggle-button {
+  background-color: hsl(226, 11%, 37%);
+}
+body.light .toggle-button:focus {
+  border: 2px solid hsl(3, 86%, 64%);
+}
+.toggle-button .toggle-thumb {
+ content: "";
+ position: absolute;
+ top: 3px;
+ left: 3px;
+ width: 20px;
+ height: 20px;
+ background-color: white;
+ border-radius: 50%;
+ transition: transform 0.3s ease;
+}
+body.dark .toggle-button.active {
+ background-color:hsl(3, 86%, 64%) ;
+}
+body.dark .toggle-button.active:hover {
+  background-color:hsl(3, 71%, 56%) ;
+}
+body.dark .toggle-button.active:focus {
+  background-color:hsl(3, 71%, 56%) ;
+  border: 2px solid hsl(3, 77%, 44%);
+}
+body.light .toggle-button.active {
+background-color: hsl(3, 77%, 44%);
+}
+body.light .toggle-button.active:hover{
+  background-color: hsl(3, 71%, 56%);
+}
+body.light .toggle-button.active:focus{
+  background-color: hsl(3, 86%, 64%);
+}
+.toggle-button.active .toggle-thumb {
+  transform: translateX(24px);
 }
 
-.App-link {
-  color: #61dafb;
+.attribution {
+ text-align: center;
+ padding-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 375px ) {
+  #root {
+    width: 375px;
+    height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .page-container {
+  width: 90vw; /* or 1000px, 1140px etc. */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
 }
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  border-radius: 10px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+}
+
