@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/patiltukaram/browser-extensions-manager-UI/static/css/main.ebd59c94.css",
-    "main.js": "/patiltukaram/browser-extensions-manager-UI/static/js/main.3ec7aceb.js",
-    "index.html": "/patiltukaram/browser-extensions-manager-UI/index.html",
-    "main.ebd59c94.css.map": "/patiltukaram/browser-extensions-manager-UI/static/css/main.ebd59c94.css.map",
-    "main.3ec7aceb.js.map": "/patiltukaram/browser-extensions-manager-UI/static/js/main.3ec7aceb.js.map"
+    "main.css": "/browser-extensions-manager-UI/static/css/main.ebd59c94.css",
+    "main.js": "/browser-extensions-manager-UI/static/js/main.3ec7aceb.js",
+    "index.html": "/browser-extensions-manager-UI/index.html",
+    "main.ebd59c94.css.map": "/browser-extensions-manager-UI/static/css/main.ebd59c94.css.map",
+    "main.3ec7aceb.js.map": "/browser-extensions-manager-UI/static/js/main.3ec7aceb.js.map"
   },
   "entrypoints": [
     "static/css/main.ebd59c94.css",
